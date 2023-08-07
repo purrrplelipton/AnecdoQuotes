@@ -1,0 +1,38 @@
+.inner.wandering-cubes {
+  position: relative;
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  border-radius: 4px;
+  margin: 6px;
+}
+
+@keyframes spinner-wandering-cubes {
+  25% {
+    transform: translateX(16px) rotate(-90deg) scale(0.5);
+  }
+  50% {
+    transform: translateX(16px) translateY(16px) rotate(-180deg);
+  }
+  75% {
+    transform: translateX(0) translateY(16px) rotate(-270deg) scale(0.5);
+  }
+  100% {
+    transform: rotate(-1turn);
+  }
+}
+
+.inner.wandering-cubes span.cube {
+  width: 8px;
+  height: 8px;
+  background-color: currentColor;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 2px;
+  animation: spinner-wandering-cubes 1.8s ease-in-out infinite;
+}
+
+.inner.wandering-cubes span.cube:last-child {
+  animation-delay: -0.9s;
+}

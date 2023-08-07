@@ -1,0 +1,49 @@
+.card {
+  max-width: 625px;
+  background-color: #ffd9b7;
+  padding: 1.8em;
+  border-radius: 1em;
+  box-shadow: 0 1em 3em 0 rgba(0 0 0 / 0.2);
+  position: relative;
+}
+
+.star-wrapper {
+  position: absolute;
+  top: 0.2em;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.card section:first-of-type {
+  margin-bottom: 1.5em;
+  padding: 0.3em;
+  position: relative;
+  z-index: 1;
+  background-color: #ffffff1a;
+  border-radius: 8px;
+}
+
+.card section:first-of-type p {
+  font-weight: bolder;
+  user-select: none;
+}
+
+.card section:first-of-type::before {
+  content: url(./assets/quote.svg);
+  position: absolute;
+  transform: rotate(180deg) translate(50%, 45%);
+  opacity: 0.2;
+  z-index: -1;
+}
+
+.card section:last-of-type {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.card section:last-of-type div {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+}

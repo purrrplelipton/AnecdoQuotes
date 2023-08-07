@@ -1,0 +1,26 @@
+.btn-base {
+  background-color: transparent;
+  color: inherit;
+  display: grid;
+  place-items: center;
+  padding: 6px;
+  border: 1px solid transparent;
+  border-radius: 50%;
+  outline: 1px solid transparent;
+  transition: background-color 0.2s;
+}
+
+.btn-base:hover {
+  background-color: hsla(0, 0%, 0%, 0.05);
+}
+
+.btn-base:focus {
+  border-color: hsla(0, 0%, 0%, 0.25);
+}
+
+.anecdote-vote-count {
+  font-size: 1.25em;
+  min-width: 2ch;
+  text-align: center;
+  user-select: none;
+}
