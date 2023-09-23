@@ -21,7 +21,7 @@ This anecdote web app is built as a part of the FullStack Open course, which foc
 
 ## Preview
 
-![Screenshot of AnecdoQuotes](AQ_preview.webp)
+![Screenshot of AnecdoQuotes](./AQ_preview.webp)
 
 ## Features
 

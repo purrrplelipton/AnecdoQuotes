@@ -1,8 +1,8 @@
-import Card from '@bits/card';
-import Search from '@bits/search';
-import { changeSelection, voteAnecdote } from '@store/actions';
-import React, { useCallback } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import Card from "@bits/card";
+import Search from "@bits/search";
+import { changeSelection, voteAnecdote } from "@store/actions";
+import React, { useCallback } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
 function App() {
   const dispatch = useDispatch();
@@ -23,7 +23,7 @@ function App() {
 
   const onClickVote = useCallback(
     () => dispatch(voteAnecdote(anecdote.id)),
-    [dispatch, anecdote],
+    [dispatch, anecdote]
   );
 
   return (
@@ -34,7 +34,7 @@ function App() {
         next={onClickNext}
         vote={onClickVote}
       />
-      <Search />
+      <Search anecdotes={anecdotes} />
     </>
   );
 }

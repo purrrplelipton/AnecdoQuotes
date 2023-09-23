@@ -7,14 +7,14 @@
   background-position: center;
   color: #444444;
 
-  font-family: 'Sen', sans-serif;
+  font-family: "Sen", sans-serif;
 }
 
 *,
 *::before,
 *::after {
   box-sizing: border-box;
-  outline: 1px solid red;
+  /* outline: 1px solid red; */
 }
 
 * {
