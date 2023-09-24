@@ -1,11 +1,13 @@
-import { CHANGE_SELECTION } from '../actions/select-actions';
+import { CHANGE_SELECTION } from "../actions/select-actions";
 
-export default function selectReducer(state = 0, action = {}) {
-  switch (action.type) {
+function selectReducer(state = { value: 0 }, action = {}) {
+  const { type, payload } = action;
+  switch (type) {
     case CHANGE_SELECTION:
-      return action.payload.newIndex;
+      return { ...state, value: payload.newIndex };
 
     default:
       return state;
   }
 }
+export default selectReducer;

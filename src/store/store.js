@@ -1,12 +1,12 @@
-import { combineReducers, createStore } from 'redux';
-import { anecdoteReducer, filterReducer, selectReducer } from './reducers';
+import { combineReducers, legacy_createStore as createStore } from "redux";
+import { anecdoteReducer, filterReducer, selectReducer } from "./reducers";
 
-const reducers = combineReducers({
-  anecdotes: anecdoteReducer,
-  index: selectReducer,
-  filter: filterReducer,
-});
-
-const store = createStore(reducers);
+const store = createStore(
+  combineReducers({
+    anecdoteReducer,
+    selectReducer,
+    filterReducer,
+  })
+);
 
 export default store;

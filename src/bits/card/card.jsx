@@ -1,12 +1,13 @@
-import { IconStarFilled } from '@tabler/icons-react';
-import PropTypes from 'prop-types';
-import React from 'react';
-import { useSelector } from 'react-redux';
-import { LikeBtn, PrvNxtBtn } from './assets/components';
-import styles from './card.module.css';
+import { IconStarFilled } from "@tabler/icons-react";
+import PropTypes from "prop-types";
+import React from "react";
+import { useSelector } from "react-redux";
+import { LikeBtn, PrvNxtBtn } from "./assets/components";
+import styles from "./card.module.css";
 
-function Card({ anecdote, previous, next, vote }) {
-  const anecdotes = useSelector((state) => state.anecdotes);
+function Card(props) {
+  const { anecdote, previous, next, vote } = props;
+  const anecdotes = useSelector((state) => state.anecdoteReducer.value);
   const highestVote = Math.max(...anecdotes.map((dote) => dote.votes));
   const mostVoted = highestVote > 0 && highestVote === anecdote.votes;
 

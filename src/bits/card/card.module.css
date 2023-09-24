@@ -1,10 +1,11 @@
 .card {
   max-width: 625px;
   background-color: #ffd9b7;
-  padding: 1.8em;
-  border-radius: 1em;
-  box-shadow: 0 1em 3em 0 rgba(0 0 0 / 0.2);
+  padding: calc(1.25 * var(--spacing));
+  border-radius: 18px;
+  box-shadow: 0 1em 3em -0.875em #0004;
   position: relative;
+  isolation: isolate;
 }
 
 .star-wrapper {
@@ -16,11 +17,11 @@
 
 .card section:first-of-type {
   margin-bottom: 1.5em;
-  padding: 0.3em;
+  padding: 0.375em 0.625em;
   position: relative;
   z-index: 1;
-  background-color: #ffffff1a;
-  border-radius: 8px;
+  background-color: #fff2;
+  border-radius: 10px;
 }
 
 .card section:first-of-type p {

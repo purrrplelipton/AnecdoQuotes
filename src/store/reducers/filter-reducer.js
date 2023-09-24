@@ -1,11 +1,13 @@
-import { CHANGE_FILTER } from '../actions/filter-actions';
+import { CHANGE_FILTER } from "../actions/filter-actions";
 
-export default function filterReducer(state = '', action = {}) {
-  switch (action.type) {
+function filterReducer(state = { value: "" }, action = {}) {
+  const { type, payload } = action;
+  switch (type) {
     case CHANGE_FILTER:
-      return action.payload;
+      return { ...state, value: payload.value };
 
     default:
       return state;
   }
 }
+export default filterReducer;

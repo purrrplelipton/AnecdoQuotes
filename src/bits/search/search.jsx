@@ -1,41 +1,37 @@
 import WanderingCubes from "@bits/wandering-cubes";
 import { changeFilter } from "@store/actions";
 import { IconSearch } from "@tabler/icons-react";
-import pt from "prop-types";
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import styles from "./search.module.css";
 
-function Search({ anecdotes }) {
+function Search() {
   const dispatch = useDispatch();
-  const query = useSelector((state) => state.filter);
+  const anecdotes = useSelector((state) => state.anecdoteReducer.value);
+  // const filter = useSelector((state) => state.filterReducer.value);
   const [searching, setSearching] = React.useState(false);
-  const [clonedAnecdotes, setClonedAnecdotes] = React.useState(anecdotes);
-
-  React.useEffect(() => {
-    setClonedAnecdotes((prv) => {
-      prv.filter((ncdt) => ncdt.content.includes(query));
-    });
-  }, [query]);
+  const [queryResults, setQueryResults] = React.useState([]);
 
   const search = (e) => {
-    setSearching(true);
     e.preventDefault();
-    const { target } = e;
-    let query$ = "";
-    switch (target.tagName) {
+    setSearching(true);
+    let value = null;
+    switch (e.target.tagName) {
       case "INPUT":
-        query$ = target.value;
+        value = e.target.value;
         break;
       case "FORM":
-        query$ = target.field.value;
+        value = e.target.field.value;
         break;
 
       default:
         break;
     }
-
-    dispatch(changeFilter(query$));
+    dispatch(changeFilter(value));
+    const rexp = new RegExp(value, "gui");
+    if (value) {
+      setQueryResults(anecdotes.filter(({ content }) => rexp.test(content)));
+    } else setQueryResults([]);
     setSearching(false);
   };
 
@@ -47,11 +43,11 @@ function Search({ anecdotes }) {
           {searching ? <WanderingCubes /> : <IconSearch />}
         </button>
       </form>
-      {query && (
-        <ul>
-          {clonedAnecdotes.map(({ content, id }) => (
-            <li key={id}>
-              <p>{content}</p>
+      {queryResults.length > 0 && (
+        <ul className={styles.resultsList}>
+          {queryResults.map((anecdote) => (
+            <li key={anecdote.id}>
+              <p>{anecdote.content}</p>
             </li>
           ))}
         </ul>
@@ -59,9 +55,5 @@ function Search({ anecdotes }) {
     </section>
   );
 }
-
-Search.propTypes = {
-  anecdotes: pt.arrayOf(pt.shape({})).isRequired,
-};
 
 export default Search;

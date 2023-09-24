@@ -6,8 +6,8 @@ import { useDispatch, useSelector } from "react-redux";
 
 function App() {
   const dispatch = useDispatch();
-  const anecdotes = useSelector((state) => state.anecdotes);
-  const index = useSelector((state) => state.index);
+  const anecdotes = useSelector((state) => state.anecdoteReducer.value);
+  const index = useSelector((state) => state.selectReducer.value);
 
   const anecdote = anecdotes[index];
 
